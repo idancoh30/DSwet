@@ -2,11 +2,16 @@ import java.util.ArrayList;
 
 public class TechnionTournament implements Tournament{
 
+    private TwoThreeTree<PlayerLeaf> playersByGoals;
+    private TwoThreeTree<FacultyLeaf> facultyByGoals;
+    private TwoThreeTree<FacultyLeaf> facultyByID;
+
     TechnionTournament(){};
 
     @Override
     public void init() {
-
+        playersByGoals = new TwoThreeTree<PlayerLeaf>(); {
+        }
     }
 
     @Override

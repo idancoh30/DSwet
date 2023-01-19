@@ -1,17 +1,7 @@
 import jdk.nashorn.api.tree.Tree;
-
-public class TreeNode {
+public abstract class TreeNode implements Comparable<TreeNode> {
     TreeNode parent;
     TreeNode[] children = new TreeNode[3];
-
-    // java is doing this on default maybe?
-    public TreeNode()
-    {
-        for (int i = 0; i < children.length; i++) {
-            children[i] = null;
-        }
-        parent = null;
-    }
 
     public TreeNode getChild(int i)
     {
@@ -39,4 +29,10 @@ public class TreeNode {
     {
         return (getChild(0) == null);
     }
+
+
+    public abstract void UpdateKey();
+
+    @Override
+    public abstract int compareTo(TreeNode o);
 }

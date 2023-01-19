@@ -42,4 +42,26 @@ public class PlayerLeaf extends TreeNode {
     public boolean isLeaf() {
         return super.isLeaf();
     }
+
+    @Override
+    public void UpdateKey() {
+        this.setGoals(this.getChild(0).getGoals());
+        if (this.getChild(1) != null)
+            this.setGoals(this.getChild(1).getGoals());
+        if (this.getChild(2) != null)
+            this.setGoals(this.getChild(2).getGoals());
+    }
+
+    @Override
+    public int compareTo(TreeNode o) {
+        PlayerLeaf other = (PlayerLeaf)o;
+        if (this.getGoals() == other.getGoals()) {
+            if (this.getData().getId() < other.getData().getId())
+                return -1;
+            return 1; // if p1.id > p2.id
+        }
+        if (this.getGoals() < other.getGoals())
+            return -1;
+        return 1;
+    }
 }

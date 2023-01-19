@@ -4,12 +4,19 @@ import java.util.*;
 import java.lang.AssertionError;
 public class Main {
     public static void main(String[] args) {
+
         TreeByPlayerGoals T = new TreeByPlayerGoals();
-        Player p = new Player(1,"idan");
-        PlayerLeaf root = new PlayerLeaf(p,10);
-        T.setRoot(root);
-        T.recursivePrint(root);
-        //        /** Initializing the tournament **/
+        PlayerLeaf b = new PlayerLeaf(new Player(1, "idan"),10);
+        PlayerLeaf c = new PlayerLeaf(new Player(1,"or"), 20);
+
+
+       T.Insert(T,b);
+       T.Insert(T,c);
+       T.recursivePrint(T.getRoot());
+
+
+
+        // /** Initializing the tournament **/
 //        TechnionTournament tournament = new TechnionTournament();
 //        tournament.init();
 //        /** End of initializing the Tournament **/
@@ -20,8 +27,8 @@ public class Main {
 //        faculties.put(2,"EE");
 //        faculties.put(3,"IE");
 //        faculties.put(4,"BME");
-//		faculties.put(5,"MED");
-//		faculties.put(6,"CE");
+//		  faculties.put(5,"MED");
+//		  faculties.put(6,"CE");
 //
 //        for(Map.Entry<Integer,String> f : faculties.entrySet()){
 //            Faculty faculty = new Faculty(f.getKey(), f.getValue());
