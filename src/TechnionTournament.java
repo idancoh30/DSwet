@@ -2,16 +2,24 @@ import java.util.ArrayList;
 
 public class TechnionTournament implements Tournament{
 
-    private TwoThreeTree<PlayerLeaf> playersByGoals;
-    private TwoThreeTree<FacultyLeaf> facultyByGoals;
-    private TwoThreeTree<FacultyLeaf> facultyByID;
+    private TwoThreeTree<PlayerLeafByGoals> playersByGoals;
+    private TwoThreeTree<FacultyLeafByGoals> facultyByGoals;
+    private TwoThreeTree<FacultyLeafByID> facultyByID;
+    private TwoThreeTree<PlayerLeafByGoals> freeAgents;
 
     TechnionTournament(){};
 
     @Override
     public void init() {
-        playersByGoals = new TwoThreeTree<PlayerLeaf>(); {
-        }
+        playersByGoals = new TwoThreeTree<>(null, new PlayerLeafByGoals(null, Integer.MIN_VALUE),
+                new PlayerLeafByGoals(null, Integer.MAX_VALUE), new PlayerLeafFactory());
+        freeAgents = new TwoThreeTree<>(null, new PlayerLeafByGoals(null, Integer.MIN_VALUE),
+                new PlayerLeafByGoals(null, Integer.MAX_VALUE), new PlayerLeafFactory());
+        facultyByGoals = new TwoThreeTree<>(null, new FacultyLeafByGoals(new Player[11],null, Integer.MIN_VALUE)
+        ,new FacultyLeafByGoals(new Player[11],null, Integer.MAX_VALUE), new FacultyLeafByGoalsFactory());
+        facultyByID = new TwoThreeTree<>(null, new FacultyLeafByID(new Player[11], new Faculty(Integer.MIN_VALUE,"LeftSentinel")),
+                new FacultyLeafByID(new Player[11],new Faculty(Integer.MAX_VALUE, "RightSentinel")),
+                new FacultyLeafByIDFactory());
     }
 
     @Override

@@ -1,13 +1,10 @@
-import jdk.nashorn.api.tree.Tree;
-
-import java.util.*;
 import java.lang.AssertionError;
 public class Main {
     public static void main(String[] args) {
 
         TreeByPlayerGoals T = new TreeByPlayerGoals();
-        PlayerLeaf b = new PlayerLeaf(new Player(1, "idan"),10);
-        PlayerLeaf c = new PlayerLeaf(new Player(1,"or"), 20);
+        PlayerLeafByGoals b = new PlayerLeafByGoals(new Player(1, "idan"),10);
+        PlayerLeafByGoals c = new PlayerLeafByGoals(new Player(1,"or"), 20);
 
 
        T.Insert(T,b);

@@ -1,7 +1,7 @@
-public class PlayerLeafFactory implements IFactory<PlayerLeaf>
+public class PlayerLeafFactory implements IFactory<PlayerLeafByGoals>
 {
     @Override
-    public PlayerLeaf create() {
-        return new PlayerLeaf();
+    public PlayerLeafByGoals create() {
+        return new PlayerLeafByGoals();
     }
 }
